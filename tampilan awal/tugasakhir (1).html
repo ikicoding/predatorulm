@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tugasakhir2 (1).css"> 
+    <title>Sistem Informasi ULM</title>
+</head>
+<body>
+    <nav class="nav">
+        <div class="logo">
+            <img src="logolam.png" alt="Logo" style="width: 80px; height: 70px;">
+        </div>
+        <ul class="data-list">
+            <li><a href="propile.html">Profile</a></li>
+            <li><a href="mapunlam (1).html">Lokasi</a></li>
+            <li><a href="#">Akreditasi</a></li>
+            <li class="arya"><a href="#">Fakultas</a>
+                <ul class="list" >
+                    <li><a href="http://fkip.ulm.ac.id/web/">FKIP</a></li>
+                    <li><a href="https://fisip.ulm.ac.id/id/">FSIP</a></li>
+                    <li><a href="https://feb.ulm.ac.id/id/">FEB</a></li>
+                    <li><a href="https://fh.ulm.ac.id/">HUKUM</a></li>
+                    <li><a href="#">TEHNIK</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Penghargaan</a></li>
+            <li><a href="#">Saran / Kritik</a></li>
+        </ul>
+    </nav>
+
+    <div class="header">
+        <video class="video-background" autoplay muted loop>
+            <source src="vidio ulm.mp4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="gambar">
+            <img src="logolam.png" alt="Placeholder Image">
+            <br>
+            <h1>Sistem Informasi ULM </h1>
+        </div>
+    </div>
+
+    <div id="overlay" class="overlay"></div>
+    <div id="announcement" class="announcement">
+        <span class="close-btn" onclick="closeAnnouncement()">&times;</span>
+        <img src="Poster Infografis Bahaya Rokok Ilustratif Biru dan Putih.png" alt="Announcement Image">
+    </div>
+
+    <footer class="footer">
+        <h3>Hubungi kami</h3>
+        <div class="social-icons">
+            <a href="https://api.whatsapp.com/send/?phone=%2B6282152507816&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer"><img src="balum-removebg-preview.png" alt="WhatsApp" style="height: 55px; width: 55px;"></a>
+            <a href="https://www.instagram.com/lambungmangkurat?igsh=ZWI4OGtmbjNwdnM4" target="_blank" rel="noopener noreferrer"><img src="ig-png-removebg-preview.png" alt="Instagram"></a>
+            <a href="https://youtube.com/@universitaslambungmangkura1814?si=BN89sS20tki9UBz9" target="_blank" rel="noopener noreferrer"><img src="yt_logo-removebg-preview.png" alt="YouTube"></a>
+            <a href="https://www.tiktok.com/@univlambungmangkurat?_t=8nPJcoXcfJq&_r=1" target="_blank" rel="noopener noreferrer"><img src="tt-removebg-preview.png" alt="Tiktok"></a>
+            <!-- Tambahkan ikon dan tautan media sosial lainnya di sini jika perlu -->
+        </div>
+        <p>&copy; 2024 Sistem Informasi ULM. All rights reserved.</p>
+    </footer>
+
+    <script>
+        window.onload = function() {
+            // Display the overlay and announcement after a delay of 1 second (1000 ms)
+            setTimeout(function() {
+                document.getElementById('overlay').style.display = 'block';
+                document.getElementById('announcement').style.display = 'block';
+            }, 1000);
+        }
+        
+        function closeAnnouncement() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('announcement').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
