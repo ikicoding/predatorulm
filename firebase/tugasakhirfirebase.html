@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kritik dan Saran untuk Firebase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .back-button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+        .back-button a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kritik dan Saran</h1>
+        <form id="feedbackForm">
+            <input type="text" id="name" placeholder="Nama" required>
+            <textarea id="feedback" placeholder="Masukkan kritik dan saran Anda" required></textarea>
+            <button type="submit">Kirim</button>
+        </form>
+        <div class="back-button">
+            <a href="tugasakhir (1).html">Kembali</a>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getDatabase, ref, push, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDbj5M2gw0XRuDEBmQUaSG3IZYJAUblteE",
+            authDomain: "tugasakhir-70be5.firebaseapp.com",
+            databaseURL: "https://tugasakhir-70be5-default-rtdb.firebaseio.com", 
+            projectId: "tugasakhir-70be5",
+            storageBucket: "tugasakhir-70be5.appspot.com",
+            messagingSenderId: "86514674811",
+            appId: "1:86514674811:web:e372b54d86758b779f46de"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        document.getElementById('feedbackForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const feedback = document.getElementById('feedback').value;
+
+            console.log("Form submitted");
+            console.log("Name:", name);
+            console.log("Feedback:", feedback);
+
+            try {
+                const feedbackRef = ref(db, 'feedback');
+                await push(feedbackRef, {
+                    name: name,
+                    feedback: feedback,
+                    timestamp: serverTimestamp()
+                });
+                alert('Kritik dan saran Anda telah dikirim!');
+                document.getElementById('feedbackForm').reset();
+            } catch (error) {
+                console.error('Error adding document: ', error);
+                alert('Gagal mengirim kritik dan saran. Silakan coba lagi.');
+            }
+        });
+    </script>
+</body>
+</html>
